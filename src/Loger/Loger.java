@@ -8,9 +8,9 @@ import java.sql.*;
  * Created by Łukasz on 2017-01-21.
  */
 public class Loger {
-    String login;
-    String haslo;
-    int typKonta;
+    private String login;
+    private String haslo;
+    private int typKonta;
 
     public Loger(String login, String haslo, int typKonta) {
         this.login = login;
@@ -48,7 +48,6 @@ public class Loger {
         }
         catch (Exception wyjatek){
             wyjatek.printStackTrace();
-            System.out.println("Rzucono wyjatkiem");
         }
         finally {
             return czyZalogowano ;

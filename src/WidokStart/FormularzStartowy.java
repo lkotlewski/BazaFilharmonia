@@ -1,8 +1,6 @@
 package WidokStart;
 
 import Loger.Loger;
-import Polaczenie.Polaczenie;
-import WynikLaczenia.WynikLaczenia;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
@@ -65,6 +63,7 @@ public class FormularzStartowy extends JFrame{
                 formularzStart.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
                 formularzStart.pack();
                 formularzStart.setVisible(true);
+                formularzStart.setResizable(false);
             //}
         }
         catch (Exception wyj) {
