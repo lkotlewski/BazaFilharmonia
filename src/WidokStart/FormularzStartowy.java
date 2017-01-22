@@ -24,7 +24,7 @@ public class FormularzStartowy extends JFrame{
     private JPasswordField hasloPole;
     private JComboBox listaTypowKont;
     private JButton przyciskZaloguj;
-
+    private JLabel napisPowitalny;
 
 
     public FormularzStartowy() {
