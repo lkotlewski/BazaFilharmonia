@@ -33,7 +33,7 @@ public class WidokKlient  {
         });
     }
 
-    public static void main(String[] args) {
+    public void wyswietl() {
         JFrame frame = new JFrame("WidokKlient");
         frame.setContentPane(new WidokKlient().panel1);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

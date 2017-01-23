@@ -1,6 +1,7 @@
 package Loger;
 
 import DBHandler.DBHandler;
+import WidokKlient.WidokKlient;
 
 import javax.swing.*;
 import java.io.Console;
@@ -46,7 +47,6 @@ public class Loger {
 
                 }
             }
-
 
         }
         catch (Exception wyjatek){

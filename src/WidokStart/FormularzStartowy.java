@@ -1,6 +1,7 @@
 package WidokStart;
 
 import Loger.Loger;
+import WidokKlient.WidokKlient;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
@@ -38,8 +39,17 @@ public class FormularzStartowy extends JFrame{
                     String login = loginPole.getText();
                     int typ = listaTypowKont.getSelectedIndex() + 1;
                     Loger loger = new Loger(login, haslo, typ);
-                    if (loger.zaloguj() == true)
+                    if (loger.zaloguj() == true) {
                         JOptionPane.showMessageDialog(null, "Zalogowano pomyślnie");
+                        if (typ == 3)
+                        {
+
+                            WidokKlient widok = new WidokKlient();
+                            widok.wyswietl();
+
+
+                        }
+                    }
                     else
                         JOptionPane.showMessageDialog(null, "Błędny login lub hasło, sprawdz czy dobrze wybrałeś typ konta");
                 }
