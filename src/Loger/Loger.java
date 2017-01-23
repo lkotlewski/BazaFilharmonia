@@ -11,11 +11,13 @@ public class Loger {
     private String login;
     private String haslo;
     private int typKonta;
+    private static Connection deskryptorPolaczenia;
 
-    public Loger(String login, String haslo, int typKonta) {
+    public Loger(String login, String haslo, int typKonta, Connection deskryptorPol) {
         this.login = login;
         this.haslo = haslo;
         this.typKonta = typKonta;
+        this.deskryptorPolaczenia = deskryptorPol;
     }
 
     public boolean zaloguj(){
@@ -27,8 +29,7 @@ public class Loger {
 
         try {
 
-            Connection deskryptorPolaczenia = DriverManager.getConnection(url, user, password);
-            JOptionPane.showMessageDialog(null, "Połączono z bazą danych");
+            deskryptorPolaczenia = DriverManager.getConnection(url, user, password);
             Statement zapytanie = deskryptorPolaczenia.createStatement();
             ResultSet spisKont = zapytanie.executeQuery("SELECT * FROM Konta");
 

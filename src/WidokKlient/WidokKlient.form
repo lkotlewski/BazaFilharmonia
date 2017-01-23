@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="WidokKlient.WidokKlient">
+  <grid id="27dc6" binding="panel1" default-binding="true" layout-manager="BorderLayout" hgap="0" vgap="0">
+    <constraints>
+      <xy x="20" y="20" width="500" height="400"/>
+    </constraints>
+    <properties>
+      <minimumSize width="500" height="300"/>
+      <preferredSize width="500" height="300"/>
+    </properties>
+    <border type="none"/>
+    <children>
+      <grid id="39375" binding="panelGora" layout-manager="FlowLayout" hgap="5" vgap="5" flow-align="1">
+        <constraints border-constraint="North"/>
+        <properties>
+          <background color="-13816015"/>
+          <foreground color="-13816015"/>
+          <verifyInputWhenFocusTarget value="false"/>
+        </properties>
+        <border type="none"/>
+        <children>
+          <component id="f70f5" class="javax.swing.JButton" binding="repertuarPrzycisk">
+            <constraints/>
+            <properties>
+              <background color="-11579816"/>
+              <borderPainted value="true"/>
+              <contentAreaFilled value="true"/>
+              <focusPainted value="false"/>
+              <font name="Monotype Corsiva" size="16"/>
+              <foreground color="-13509112"/>
+              <horizontalAlignment value="2"/>
+              <selected value="false"/>
+              <text value="Wyświetl Repertuar"/>
+              <visible value="true"/>
+            </properties>
+          </component>
+          <hspacer id="2c55">
+            <constraints/>
+          </hspacer>
+          <component id="83c8b" class="javax.swing.JButton" binding="zarezerwujPrzycisk">
+            <constraints/>
+            <properties>
+              <background color="-11579816"/>
+              <focusPainted value="false"/>
+              <font name="Monotype Corsiva" size="16"/>
+              <foreground color="-13509112"/>
+              <text value="Zarezerwuj"/>
+            </properties>
+          </component>
+          <hspacer id="90985">
+            <constraints/>
+          </hspacer>
+          <component id="6f401" class="javax.swing.JButton" binding="wyswRezPrzycisk">
+            <constraints/>
+            <properties>
+              <background color="-11579816"/>
+              <focusPainted value="false"/>
+              <font name="Monotype Corsiva" size="16"/>
+              <foreground color="-13509112"/>
+              <text value="Pokaz moje rezerwacje"/>
+            </properties>
+          </component>
+        </children>
+      </grid>
+      <grid id="f6a2e" binding="panelSrodek" layout-manager="FlowLayout" hgap="5" vgap="5" flow-align="1">
+        <constraints border-constraint="Center"/>
+        <properties>
+          <background color="-13816015"/>
+          <doubleBuffered value="false"/>
+          <font name="Monotype Corsiva" size="16"/>
+          <foreground color="-13816015"/>
+          <minimumSize width="500" height="300"/>
+          <preferredSize width="400" height="200"/>
+          <requestFocusEnabled value="false"/>
+        </properties>
+        <border type="none"/>
+        <children>
+          <component id="5e7f9" class="javax.swing.JList" binding="oknoWyswietl">
+            <constraints/>
+            <properties>
+              <foreground color="-11579816"/>
+              <preferredSize width="400" height="200"/>
+              <selectionForeground color="-11579816"/>
+              <visible value="false"/>
+            </properties>
+          </component>
+        </children>
+      </grid>
+    </children>
+  </grid>
+</form>
