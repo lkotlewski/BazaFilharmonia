@@ -1,5 +1,7 @@
 package Loger;
 
+import DBHandler.DBHandler;
+
 import javax.swing.*;
 import java.io.Console;
 import java.sql.*;
@@ -11,13 +13,13 @@ public class Loger {
     private String login;
     private String haslo;
     private int typKonta;
-    private static Connection deskryptorPolaczenia;
+   // private static Connection deskryptorPolaczenia;
 
-    public Loger(String login, String haslo, int typKonta, Connection deskryptorPol) {
+    public Loger(String login, String haslo, int typKonta) {
         this.login = login;
         this.haslo = haslo;
         this.typKonta = typKonta;
-        this.deskryptorPolaczenia = deskryptorPol;
+        //this.deskryptorPolaczenia = deskryptorPol;
     }
 
     public boolean zaloguj(){
@@ -28,9 +30,9 @@ public class Loger {
         String password = "lkotlews";
 
         try {
-
-            deskryptorPolaczenia = DriverManager.getConnection(url, user, password);
-            Statement zapytanie = deskryptorPolaczenia.createStatement();
+            DBHandler mojhandler = DBHandler.wezInstancje();
+            mojhandler.otworzPolaczenie();
+            Statement zapytanie = mojhandler.getDeskryptorPolaczenia().createStatement();
             ResultSet spisKont = zapytanie.executeQuery("SELECT * FROM Konta");
 
             while (spisKont.next() && sprawdzajDalej){

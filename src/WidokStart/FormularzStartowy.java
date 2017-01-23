@@ -37,7 +37,7 @@ public class FormularzStartowy extends JFrame{
                     String haslo = hasloPole.getText();
                     String login = loginPole.getText();
                     int typ = listaTypowKont.getSelectedIndex() + 1;
-                    Loger loger = new Loger(login, haslo, typ, deskryptorPolaczenia);
+                    Loger loger = new Loger(login, haslo, typ);
                     if (loger.zaloguj() == true)
                         JOptionPane.showMessageDialog(null, "Zalogowano pomyślnie");
                     else
@@ -54,11 +54,11 @@ public class FormularzStartowy extends JFrame{
     public static void main(String[] args) {
 
         try {
-                String url = "jdbc:oracle:thin:@ora3.elka.pw.edu.pl:1521:ora3inf";
+                /*String url = "jdbc:oracle:thin:@ora3.elka.pw.edu.pl:1521:ora3inf";
                 String user = "lkotlews";
                 String password = "lkotlews";
-                deskryptorPolaczenia = DriverManager.getConnection(url, user, password);
-                JOptionPane.showMessageDialog(null, "Połączono z bazą danych");
+                deskryptorPolaczenia = DriverManager.getConnection(url, user, password);*/
+
                 JFrame formularzStart = new JFrame("FormularzStartowy");
                 formularzStart.setContentPane(new FormularzStartowy().panelGlowny);
                 formularzStart.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
