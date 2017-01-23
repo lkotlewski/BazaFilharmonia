@@ -46,7 +46,7 @@ public class FormularzStartowy extends JFrame{
 
                             WidokKlient widok = new WidokKlient();
                             widok.wyswietl();
-                            dispose();
+                           // dispose();
 
 
                         }
