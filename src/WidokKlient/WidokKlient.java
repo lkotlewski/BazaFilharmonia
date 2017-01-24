@@ -125,8 +125,7 @@ public class WidokKlient  {
         /*tabelaWynikow.getColumn(0).setMaxWidth(0);
         tabelaWynikow.getColumn(1).setMinWidth(50);
         tabelaWynikow.getColumn(2).setMinWidth(50);
-        tabelaWynikow.getColumn(3).setMaxWidth(0);
-        tabelaWynikow.getColumn(4).setMaxWidth(0);*/
+       */
 
 
 
