@@ -121,7 +121,6 @@ public class WidokKlient  {
         tabelaWynikow.setOpaque(true);
        // tabelaWynikow.getColumn(2).getResizable();
        // tabelaWynikow.getColumn(2).setPreferredWidth(0);
-       // tabelaWynikow.se
         /*tabelaWynikow.getColumn(0).setMaxWidth(0);
         tabelaWynikow.getColumn(1).setMinWidth(50);
         tabelaWynikow.getColumn(2).setMinWidth(50);
