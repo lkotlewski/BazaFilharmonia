@@ -14,7 +14,7 @@ public class Loger {
     private String login;
     private String haslo;
     private int typKonta;
-   // private static Connection deskryptorPolaczenia;
+
 
     public Loger(String login, String haslo, int typKonta) {
         this.login = login;

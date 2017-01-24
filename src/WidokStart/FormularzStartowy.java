@@ -12,7 +12,7 @@ import java.sql.*;
 /**
  * Created by Łukasz on 2017-01-19.
  */
-public class FormularzStartowy extends JFrame{
+public class FormularzStartowy extends JFrame implements ActionListener{
 
     private JPanel panelGlowny;
     private JPanel panelDol;
@@ -29,53 +29,56 @@ public class FormularzStartowy extends JFrame{
     private static Connection deskryptorPolaczenia;
 
 
+    public FormularzStartowy(String title) {
+        super(title);
+        przyciskZaloguj.addActionListener(this);
+    }
     public FormularzStartowy() {
-        przyciskZaloguj.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
+        przyciskZaloguj.addActionListener(this);
+    }
 
-                try {
-                    String haslo = hasloPole.getText();
-                    String login = loginPole.getText();
-                    int typ = listaTypowKont.getSelectedIndex() + 1;
-                    Loger loger = new Loger(login, haslo, typ);
-                    if (loger.zaloguj() == true) {
-                        JOptionPane.showMessageDialog(null, "Zalogowano pomyślnie");
-                        if (typ == 3)
-                        {
+    @Override
+    public void actionPerformed(ActionEvent e) {
 
-                            WidokKlient widok = new WidokKlient();
-                            widok.wyswietl();
-                           // dispose();
+        try {
+            String haslo = hasloPole.getText();
+            String login = loginPole.getText();
+            int typ = listaTypowKont.getSelectedIndex() + 1;
+            Loger loger = new Loger(login, haslo, typ);
+            if (true){//loger.zaloguj()) {
+                JOptionPane.showMessageDialog(null, "Zalogowano pomyślnie");
+                if (typ == 3)
+                {
 
+                    WidokKlient widok = new WidokKlient();
+                    new Thread(()->widok.wyswietl()).start();
+                    this.setVisible(false);
+                    this.dispose();
 
-                        }
-                    }
-                    else
-                        JOptionPane.showMessageDialog(null, "Błędny login lub hasło, sprawdz czy dobrze wybrałeś typ konta");
-                }
-                catch(Exception wyj) {
-                        JOptionPane.showMessageDialog(null, "Nie udało się połączyć z bazą danych");
                 }
             }
-
-        });
+            else
+                JOptionPane.showMessageDialog(null, "Błędny login lub hasło, sprawdz czy dobrze wybrałeś typ konta");
+        }
+        catch(Exception wyj) {
+            JOptionPane.showMessageDialog(null, "Nie udało się połączyć z bazą danych");
+        }
+    }
+    public JPanel getMainPanel()
+    {
+        return panelGlowny;
     }
 
     public static void main(String[] args) {
 
         try {
-                /*String url = "jdbc:oracle:thin:@ora3.elka.pw.edu.pl:1521:ora3inf";
-                String user = "lkotlews";
-                String password = "lkotlews";
-                deskryptorPolaczenia = DriverManager.getConnection(url, user, password);*/
 
-                JFrame formularzStart = new JFrame("FormularzStartowy");
-                formularzStart.setContentPane(new FormularzStartowy().panelGlowny);
-                formularzStart.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-                formularzStart.pack();
-                formularzStart.setVisible(true);
-                formularzStart.setResizable(false);
+            FormularzStartowy formularzStart = new FormularzStartowy("FormularzStartowy");
+            formularzStart.setContentPane(formularzStart.getMainPanel());
+            formularzStart.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+            formularzStart.pack();
+            formularzStart.setVisible(true);
+            formularzStart.setResizable(false);
             //}
         }
         catch (Exception wyj) {
@@ -84,4 +87,6 @@ public class FormularzStartowy extends JFrame{
 
 
     }
+
+
 }

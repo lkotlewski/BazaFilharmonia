@@ -75,13 +75,10 @@
         </properties>
         <border type="none"/>
         <children>
-          <component id="5e7f9" class="javax.swing.JList" binding="oknoWyswietl">
+          <component id="ea4bc" class="javax.swing.JTable" binding="tabelaWynikow">
             <constraints/>
             <properties>
-              <foreground color="-11579816"/>
-              <preferredSize width="400" height="200"/>
-              <selectionForeground color="-11579816"/>
-              <visible value="false"/>
+              <minimumSize width="400" height="200"/>
             </properties>
           </component>
         </children>
