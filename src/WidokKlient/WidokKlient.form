@@ -37,16 +37,6 @@
           <hspacer id="2c55">
             <constraints/>
           </hspacer>
-          <component id="83c8b" class="javax.swing.JButton" binding="zarezerwujPrzycisk">
-            <constraints/>
-            <properties>
-              <background color="-11579816"/>
-              <focusPainted value="false"/>
-              <font name="Monotype Corsiva" size="16"/>
-              <foreground color="-13509112"/>
-              <text value="Zarezerwuj"/>
-            </properties>
-          </component>
           <hspacer id="90985">
             <constraints/>
           </hspacer>
@@ -57,7 +47,8 @@
               <focusPainted value="false"/>
               <font name="Monotype Corsiva" size="16"/>
               <foreground color="-13509112"/>
-              <text value="Pokaz moje rezerwacje"/>
+              <label value="Pokaz moje bilety"/>
+              <text value="Pokaz moje bilety"/>
             </properties>
           </component>
         </children>
@@ -67,8 +58,8 @@
         <properties>
           <background color="-13816015"/>
           <doubleBuffered value="false"/>
-          <font name="Monotype Corsiva" size="16"/>
-          <foreground color="-13816015"/>
+          <font name="Monotype Corsiva" size="12"/>
+          <foreground color="-2892067"/>
           <minimumSize width="500" height="300"/>
           <preferredSize width="400" height="200"/>
           <requestFocusEnabled value="false"/>
@@ -78,7 +69,58 @@
           <component id="ea4bc" class="javax.swing.JTable" binding="tabelaWynikow">
             <constraints/>
             <properties>
+              <autoResizeMode value="4"/>
+              <background color="-11579816"/>
+              <font name="Century" size="16"/>
+              <foreground color="-2302365"/>
               <minimumSize width="400" height="200"/>
+              <rowHeight value="32"/>
+              <selectionBackground color="-15759549"/>
+              <selectionForeground color="-11579816"/>
+            </properties>
+          </component>
+        </children>
+      </grid>
+      <grid id="2bb34" binding="panelKup" layout-manager="GridBagLayout">
+        <constraints border-constraint="East"/>
+        <properties>
+          <background color="-13816015"/>
+          <foreground color="-11579816"/>
+        </properties>
+        <border type="none"/>
+        <children>
+          <component id="ebe7d" class="javax.swing.JComboBox" binding="comboBox1" default-binding="true">
+            <constraints>
+              <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
+              <gridbag weightx="0.0" weighty="0.0"/>
+            </constraints>
+            <properties>
+              <background color="-11579816"/>
+              <foreground color="-13509112"/>
+              <model>
+                <item value="15% tanie wtorki                "/>
+                <item value="51% legitymacja szkolna"/>
+                <item value="60% legitymacja studencka"/>
+              </model>
+            </properties>
+          </component>
+          <vspacer id="bda61">
+            <constraints>
+              <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
+              <gridbag top="0" left="0" bottom="40" right="0" weightx="30.0" weighty="0.0"/>
+            </constraints>
+          </vspacer>
+          <component id="c0d6" class="javax.swing.JButton" binding="kupPrzycisk">
+            <constraints>
+              <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+              <gridbag weightx="0.0" weighty="0.0"/>
+            </constraints>
+            <properties>
+              <autoscrolls value="false"/>
+              <background color="-11579816"/>
+              <font name="Monotype Corsiva" size="16"/>
+              <foreground color="-13509112"/>
+              <text value="Kup"/>
             </properties>
           </component>
         </children>

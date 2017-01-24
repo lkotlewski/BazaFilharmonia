@@ -31,7 +31,7 @@ public class DBHandler {
         {
             deskryptorPolaczenia = DriverManager.getConnection(url, login, haslo);
             deskryptorPolaczenia.setAutoCommit(false);
-            JOptionPane.showMessageDialog(null, "Połączono z bazą danych");
+           // JOptionPane.showMessageDialog(null, "Połączono z bazą danych");
         } catch (SQLException e)
         {
             e.printStackTrace();

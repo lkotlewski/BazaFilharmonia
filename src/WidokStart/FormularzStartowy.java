@@ -45,13 +45,13 @@ public class FormularzStartowy extends JFrame implements ActionListener{
             String login = loginPole.getText();
             int typ = listaTypowKont.getSelectedIndex() + 1;
             Loger loger = new Loger(login, haslo, typ);
-            if (true){//loger.zaloguj()) {
+            if (loger.zaloguj()){
                 JOptionPane.showMessageDialog(null, "Zalogowano pomyślnie");
                 if (typ == 3)
                 {
 
                     WidokKlient widok = new WidokKlient();
-                    new Thread(()->widok.wyswietl()).start();
+                    new Thread(()->widok.wyswietlPanelKlienta()).start();
                     this.setVisible(false);
                     this.dispose();
 

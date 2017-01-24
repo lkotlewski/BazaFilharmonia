@@ -21,10 +21,12 @@ public class WidokKlient  {
     private JPanel panel1;
     private JPanel panelGora;
     private JButton repertuarPrzycisk;
-    private JButton zarezerwujPrzycisk;
     private JButton wyswRezPrzycisk;
     private JPanel panelSrodek;
     private JTable tabelaWynikow;
+    private JPanel panelKup;
+    private JButton kupPrzycisk;
+    private JComboBox comboBox1;
     private static Connection deskryptorPolaczenia;
 
 
@@ -35,13 +37,9 @@ public class WidokKlient  {
             @Override
             public void actionPerformed(ActionEvent e) {
                 tabelaWynikow.setVisible(true);
-                tabelaWynikow.setBackground(Color.white);
 
-                DBHandler handler = DBHandler.wezInstancje();
                 try {
-               // wezRealizacjeList();
                 wyswietlRealizacje();
-                //    FillTable(tabelaWynikow,"select * from Realizacje_koncertu");
                 }
                 catch (Exception wyj) {
                     wyj.printStackTrace();
@@ -52,7 +50,7 @@ public class WidokKlient  {
         });
     }
 
-    public void wyswietl() {
+    public void wyswietlPanelKlienta() {
         JFrame frame = new JFrame("WidokKlient");
         frame.setContentPane(new WidokKlient().panel1);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -97,27 +95,41 @@ public class WidokKlient  {
     public void wyswietlRealizacje()
     {
         Vector<RealizacjaKoncertu> realizacjeList = wezRealizacjeList();
-        DefaultTableModel model = (DefaultTableModel)tabelaWynikow.getModel();
-        Object[][] dane = new Object[realizacjeList.size()][5];
+       // DefaultTableModel model = (DefaultTableModel)tabelaWynikow.getModel();
+        Object[][] dane = new Object[realizacjeList.size()][2];
         while(tabelaWynikow.getRowCount() > 0)
         {
             ((DefaultTableModel) tabelaWynikow.getModel()).removeRow(0);
         }
         for(int i = 0; i < realizacjeList.size(); i++)
         {
-            dane[i][0] = realizacjeList.get(i).getRealizacjaID();
-            dane[i][1] = realizacjeList.get(i).getTytul();
-            dane[i][2] = realizacjeList.get(i).getData();
-            dane[i][3] = realizacjeList.get(i).getSalaID();
-            dane[i][4] = realizacjeList.get(i).getKoncertID();
-          //  model.addRow(atrybuty);
+           // dane[i][0] = realizacjeList.get(i).getRealizacjaID();
+            dane[i][0] = realizacjeList.get(i).getTytul();
+            dane[i][1] = realizacjeList.get(i).getData();
+            //dane[i][3] = realizacjeList.get(i).getSalaID();
+            //dane[i][4] = realizacjeList.get(i).getKoncertID();
+        //    model.addRow(dane[i]);
 
         }
         for (int i = 0; i < realizacjeList.size(); i++
              ) {
-            System.out.println(dane[i][2]);
+            System.out.println(dane[i][0]);
         }
-        JOptionPane.showMessageDialog(null,model);
+        Object[] nazwyKolumn = {"realizacja_id","tytul","data"};
+        TableModel naszModel = new DefaultTableModel(dane,nazwyKolumn);
+        tabelaWynikow.setModel(naszModel);
+        tabelaWynikow.setOpaque(true);
+       // tabelaWynikow.getColumn(2).getResizable();
+       // tabelaWynikow.getColumn(2).setPreferredWidth(0);
+       // tabelaWynikow.se
+        /*tabelaWynikow.getColumn(0).setMaxWidth(0);
+        tabelaWynikow.getColumn(1).setMinWidth(50);
+        tabelaWynikow.getColumn(2).setMinWidth(50);
+        tabelaWynikow.getColumn(3).setMaxWidth(0);
+        tabelaWynikow.getColumn(4).setMaxWidth(0);*/
+
+
+
 
     }
 
