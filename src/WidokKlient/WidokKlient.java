@@ -98,24 +98,24 @@ public class WidokKlient  {
     {
         Vector<RealizacjaKoncertu> realizacjeList = wezRealizacjeList();
         DefaultTableModel model = (DefaultTableModel)tabelaWynikow.getModel();
-        Object[][] atrybuty = new Object[realizacjeList.size()][5];
+        Object[][] dane = new Object[realizacjeList.size()][5];
         while(tabelaWynikow.getRowCount() > 0)
         {
             ((DefaultTableModel) tabelaWynikow.getModel()).removeRow(0);
         }
         for(int i = 0; i < realizacjeList.size(); i++)
         {
-            atrybuty[i][0] = realizacjeList.get(i).getRealizacjaID();
-            atrybuty[i][1] = realizacjeList.get(i).getTytul();
-            atrybuty[i][2] = realizacjeList.get(i).getData();
-            atrybuty[i][3] = realizacjeList.get(i).getSalaID();
-            atrybuty[i][4] = realizacjeList.get(i).getKoncertID();
+            dane[i][0] = realizacjeList.get(i).getRealizacjaID();
+            dane[i][1] = realizacjeList.get(i).getTytul();
+            dane[i][2] = realizacjeList.get(i).getData();
+            dane[i][3] = realizacjeList.get(i).getSalaID();
+            dane[i][4] = realizacjeList.get(i).getKoncertID();
           //  model.addRow(atrybuty);
 
         }
         for (int i = 0; i < realizacjeList.size(); i++
              ) {
-            System.out.println(atrybuty[i][2]);
+            System.out.println(dane[i][2]);
         }
         JOptionPane.showMessageDialog(null,model);
 
