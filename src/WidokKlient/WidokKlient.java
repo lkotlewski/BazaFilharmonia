@@ -2,6 +2,7 @@ package WidokKlient;
 
 import DBHandler.DBHandler;
 import RealizacjaKoncertu.RealizacjaKoncertu;
+import org.apache.commons.lang.mutable.MutableInt;
 
 import java.lang.Object;
 import java.util.ArrayList;
@@ -28,9 +29,16 @@ public class WidokKlient  {
     private JButton kupPrzycisk;
     private JComboBox comboBox1;
     private static Connection deskryptorPolaczenia;
+    private MutableInt klientID;
 
 
+    public MutableInt getKlientID() {
+        return klientID;
+    }
 
+    public void setKlientID(MutableInt klientID) {
+        this.klientID = klientID;
+    }
 
     public WidokKlient() {
         repertuarPrzycisk.addActionListener(new ActionListener() {

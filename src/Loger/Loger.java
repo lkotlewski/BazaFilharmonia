@@ -2,6 +2,7 @@ package Loger;
 
 import DBHandler.DBHandler;
 import WidokKlient.WidokKlient;
+import org.apache.commons.lang.mutable.MutableInt;
 
 import javax.swing.*;
 import java.io.Console;
@@ -23,12 +24,13 @@ public class Loger {
         //this.deskryptorPolaczenia = deskryptorPol;
     }
 
-    public boolean zaloguj(){
+    public boolean zaloguj(MutableInt klientID){
         boolean czyZalogowano = false;
         boolean sprawdzajDalej = true;
         String url = "jdbc:oracle:thin:@ora3.elka.pw.edu.pl:1521:ora3inf";
         String user = "lkotlews";
         String password = "lkotlews";
+        Integer klientNR = 0;
 
         try {
             DBHandler mojhandler = DBHandler.wezInstancje();
@@ -43,6 +45,9 @@ public class Loger {
                     String hasl = spisKont.getString("Haslo");
                     int typ = spisKont.getInt("Typ_ID");
                     if (hasl.equals(this.haslo)  && spisKont.getInt("Typ_ID") ==typKonta)
+                    klientNR = spisKont.getInt("Konto_ID");
+                    klientID.setValue(klientNR);
+
                         czyZalogowano = true;
 
                 }

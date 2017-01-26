@@ -2,7 +2,7 @@ package WidokStart;
 
 import Loger.Loger;
 import WidokKlient.WidokKlient;
-
+import org.apache.commons.lang.mutable.MutableInt;
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -45,12 +45,14 @@ public class FormularzStartowy extends JFrame implements ActionListener{
             String login = loginPole.getText();
             int typ = listaTypowKont.getSelectedIndex() + 1;
             Loger loger = new Loger(login, haslo, typ);
-            if (loger.zaloguj()){
+            MutableInt klientID = new MutableInt();
+            if (loger.zaloguj(klientID)){
                 JOptionPane.showMessageDialog(null, "Zalogowano pomyślnie");
                 if (typ == 3)
                 {
 
                     WidokKlient widok = new WidokKlient();
+                    widok.setKlientID(klientID);
                     new Thread(()->widok.wyswietlPanelKlienta()).start();
                     this.setVisible(false);
                     this.dispose();
