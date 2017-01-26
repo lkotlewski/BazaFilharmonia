@@ -2,6 +2,7 @@ package WidokStart;
 
 import Loger.Loger;
 import WidokKlient.WidokKlient;
+import WidokAdmin.WidokAdmin;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
@@ -41,12 +42,18 @@ public class FormularzStartowy extends JFrame implements ActionListener{
     public void actionPerformed(ActionEvent e) {
 
         try {
-            String haslo = hasloPole.getText();
+            String haslo = new String(hasloPole.getPassword());
             String login = loginPole.getText();
             int typ = listaTypowKont.getSelectedIndex() + 1;
             Loger loger = new Loger(login, haslo, typ);
             if (loger.zaloguj()){
                 JOptionPane.showMessageDialog(null, "Zalogowano pomyślnie");
+				if (typ == 1){
+					WidokAdmin widok = new WidokAdmin();
+                    new Thread(()->widok.wyswietl()).start();
+					this.setVisible(false);
+					this.dispose();
+				}
                 if (typ == 3)
                 {
 
@@ -62,6 +69,7 @@ public class FormularzStartowy extends JFrame implements ActionListener{
         }
         catch(Exception wyj) {
             JOptionPane.showMessageDialog(null, "Nie udało się połączyć z bazą danych");
+            wyj.printStackTrace();
         }
     }
     public JPanel getMainPanel()
