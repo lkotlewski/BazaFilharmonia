@@ -59,8 +59,8 @@ public class FormularzStartowy extends JFrame implements ActionListener{
                 if (typ == 3)
                 {
 
-                    WidokKlient widok = new WidokKlient();
-                    widok.setKlientID(klientID);
+                    WidokKlient widok = new WidokKlient(klientID);
+                   // widok.setKlientID(klientID);
                     new Thread(()->widok.wyswietlPanelKlienta()).start();
                     this.setVisible(false);
                     this.dispose();
