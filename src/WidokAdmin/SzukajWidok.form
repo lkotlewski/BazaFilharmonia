@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="WidokAdmin.SzukajWidok">
+  <grid id="27dc6" binding="panel1" default-binding="true" layout-manager="FlowLayout" hgap="5" vgap="5" flow-align="1">
+    <constraints>
+      <xy x="20" y="20" width="500" height="400"/>
+    </constraints>
+    <properties>
+      <maximumSize width="500" height="231"/>
+      <minimumSize width="500" height="231"/>
+      <preferredSize width="500" height="231"/>
+    </properties>
+    <border type="none"/>
+    <children>
+      <component id="bfb75" class="javax.swing.JLabel">
+        <constraints/>
+        <properties>
+          <enabled value="false"/>
+          <maximumSize width="200" height="16"/>
+          <minimumSize width="200" height="16"/>
+          <preferredSize width="200" height="16"/>
+          <text value="IMIE"/>
+        </properties>
+      </component>
+      <component id="71645" class="javax.swing.JTextField" binding="imieTextField" default-binding="true">
+        <constraints/>
+        <properties>
+          <maximumSize width="200" height="24"/>
+          <minimumSize width="200" height="24"/>
+          <preferredSize width="200" height="24"/>
+          <text value=""/>
+        </properties>
+      </component>
+      <component id="3394a" class="javax.swing.JLabel">
+        <constraints/>
+        <properties>
+          <enabled value="false"/>
+          <maximumSize width="200" height="16"/>
+          <minimumSize width="200" height="16"/>
+          <preferredSize width="200" height="16"/>
+          <text value="NAZWISKO"/>
+        </properties>
+      </component>
+      <component id="c6bab" class="javax.swing.JTextField" binding="nazwiskoTextField">
+        <constraints/>
+        <properties>
+          <maximumSize width="200" height="24"/>
+          <minimumSize width="200" height="24"/>
+          <preferredSize width="200" height="24"/>
+          <text value=""/>
+        </properties>
+      </component>
+      <component id="66572" class="javax.swing.JLabel">
+        <constraints/>
+        <properties>
+          <enabled value="false"/>
+          <maximumSize width="200" height="16"/>
+          <minimumSize width="200" height="16"/>
+          <preferredSize width="200" height="16"/>
+          <text value="PESEL"/>
+        </properties>
+      </component>
+      <component id="6e910" class="javax.swing.JTextField" binding="peselTextField">
+        <constraints/>
+        <properties>
+          <maximumSize width="200" height="24"/>
+          <minimumSize width="200" height="24"/>
+          <preferredSize width="200" height="24"/>
+          <text value=""/>
+        </properties>
+      </component>
+      <component id="925a7" class="javax.swing.JLabel">
+        <constraints/>
+        <properties>
+          <enabled value="false"/>
+          <maximumSize width="200" height="16"/>
+          <minimumSize width="200" height="16"/>
+          <preferredSize width="200" height="16"/>
+          <text value="NAZWA FILHARMONII"/>
+        </properties>
+      </component>
+      <component id="6807d" class="javax.swing.JTextField" binding="filharmoniaTextField">
+        <constraints/>
+        <properties>
+          <maximumSize width="200" height="24"/>
+          <minimumSize width="200" height="24"/>
+          <preferredSize width="200" height="24"/>
+          <text value=""/>
+        </properties>
+      </component>
+      <component id="293a9" class="javax.swing.JButton" binding="szukajButton" default-binding="true">
+        <constraints/>
+        <properties>
+          <maximumSize width="105" height="32"/>
+          <minimumSize width="105" height="32"/>
+          <preferredSize width="105" height="32"/>
+          <text value="Szukaj"/>
+        </properties>
+      </component>
+    </children>
+  </grid>
+</form>
