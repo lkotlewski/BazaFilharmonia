@@ -44,12 +44,12 @@ public class Loger {
                     sprawdzajDalej = false;
                     String hasl = spisKont.getString("Haslo");
                     int typ = spisKont.getInt("Typ_ID");
-                    if (hasl.equals(this.haslo)  && spisKont.getInt("Typ_ID") ==typKonta)
-                    klientNR = spisKont.getInt("Konto_ID");
-                    klientID.setValue(klientNR);
+                    if (hasl.equals(this.haslo)  && spisKont.getInt("Typ_ID") ==typKonta) {
+                        klientNR = spisKont.getInt("Konto_ID");
+                        klientID.setValue(klientNR);
 
                         czyZalogowano = true;
-
+                    }
                 }
             }
 

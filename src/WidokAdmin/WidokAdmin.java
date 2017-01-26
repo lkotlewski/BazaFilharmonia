@@ -34,8 +34,7 @@ public class WidokAdmin implements ActionListener{
             "NAZWISKO",
             "PESEL",
             "ZATRUDNIONY OD",
-            "ZATRUDNIONY DO",
-            "FILHARMONIA", "EDYCJA"};
+            "ZATRUDNIONY DO", "EDYCJA"};
 
     private void createUIComponents() {
 
@@ -87,7 +86,7 @@ public class WidokAdmin implements ActionListener{
         Connection connection = dbHandler.getDeskryptorPolaczenia();
         Statement stmt = connection.createStatement();
         String getPracownicyCount = "SELECT COUNT(*) from PRACOWNICY";
-        String getPracownicySQL = "SELECT p.PRACOWNIK_ID, p.IMIE, p.NAZWISKO, p.PESEL, p.ZATRUDNIONY_OD, p.ZATRUDNIONY_DO, f.NAZWA_OFICJALNA from PRACOWNICY p INNER JOIN FILHARMONIE f on f.FILHARMONIA_ID = p.FILHARMONIA_ID";
+        String getPracownicySQL = "SELECT p.PRACOWNIK_ID, p.IMIE, p.NAZWISKO, p.PESEL, p.ZATRUDNIONY_OD, p.ZATRUDNIONY_DO from PRACOWNICY p";
         ResultSet countRS = stmt.executeQuery(getPracownicyCount);
         int count = 0;
         if (countRS.next()){
@@ -98,16 +97,15 @@ public class WidokAdmin implements ActionListener{
         stmt = connection.createStatement();
         ResultSet rs = stmt.executeQuery(getPracownicySQL);
         pracownicyTable = new JTable();
-        Object [][] data = new Object[count][7];
+        Object [][] data = new Object[count][6];
         int index = 0;
         while(rs.next()){
-            data[index][6] = (Object) rs.getInt(1);
+            data[index][5] = (Object) rs.getInt(1);
             data[index][0] = (Object) rs.getString(2);
             data[index][1] = (Object) rs.getString(3);
             data[index][2] = (Object) rs.getString(4);
             data[index][3] = (Object) rs.getDate(5);
             data[index][4] = (Object) rs.getDate(6);
-            data[index][5] = (Object) rs.getString(7);
             index++;
         }
         DefaultTableModel dm = new DefaultTableModel();
@@ -124,16 +122,14 @@ public class WidokAdmin implements ActionListener{
         stmt.close();
     }
 
-    public void filtrujPracownikow(String imie, String nazwisko, String pesel, String filharmonia) throws SQLException {
+    public void filtrujPracownikow(String imie, String nazwisko, String pesel) throws SQLException {
         dbHandler = DBHandler.wezInstancje();
         Connection connection = dbHandler.getDeskryptorPolaczenia();
-        String countsql = "SELECT count(*) from PRACOWNICY p INNER JOIN FILHARMONIE f on f.FILHARMONIA_ID = p.FILHARMONIA_ID"
-                + " WHERE p.IMIE LIKE ? AND p.NAZWISKO LIKE ? AND p.PESEL LIKE ? AND f.NAZWA_OFICJALNA LIKE ?";
+        String countsql = "SELECT count(*) from PRACOWNICY p WHERE p.IMIE LIKE ? AND p.NAZWISKO LIKE ? AND p.PESEL LIKE ?";
         PreparedStatement count_stmt = connection.prepareStatement(countsql);
         count_stmt.setString(1, imie +"%");
         count_stmt.setString(2, nazwisko+"%");
         count_stmt.setString(3, pesel+"%");
-        count_stmt.setString(4, filharmonia+"%");
         int count = 0;
         ResultSet countrs = count_stmt.executeQuery();
         while(countrs.next()){
@@ -141,25 +137,21 @@ public class WidokAdmin implements ActionListener{
         }
         countrs.close();
         count_stmt.close();
-        System.out.println(count);
-        String sql = "SELECT p.PRACOWNIK_ID, p.IMIE, p.NAZWISKO, p.PESEL, p.ZATRUDNIONY_OD, p.ZATRUDNIONY_DO, f.NAZWA_OFICJALNA from PRACOWNICY p INNER JOIN FILHARMONIE f on f.FILHARMONIA_ID = p.FILHARMONIA_ID"
-                + " WHERE p.IMIE LIKE ? AND p.NAZWISKO LIKE ? AND p.PESEL LIKE ? AND f.NAZWA_OFICJALNA LIKE ?";
+        String sql = "SELECT p.PRACOWNIK_ID, p.IMIE, p.NAZWISKO, p.PESEL, p.ZATRUDNIONY_OD, p.ZATRUDNIONY_DO from PRACOWNICY p WHERE p.IMIE LIKE ? AND p.NAZWISKO LIKE ? AND p.PESEL LIKE ?";
         PreparedStatement stmt = connection.prepareStatement(sql);
         stmt.setString(1, imie+"%");
         stmt.setString(2, nazwisko+"%");
         stmt.setString(3, pesel+"%");
-        stmt.setString(4, filharmonia+"%");
         ResultSet rs = stmt.executeQuery();
-        Object [][] data = new Object[count][7];
+        Object [][] data = new Object[count][6];
         int index = 0;
         while(rs.next()){
-            data[index][6] = (Object) rs.getInt(1);
+            data[index][5] = (Object) rs.getInt(1);
             data[index][0] = (Object) rs.getString(2);
             data[index][1] = (Object) rs.getString(3);
             data[index][2] = (Object) rs.getString(4);
             data[index][3] = (Object) rs.getDate(5);
             data[index][4] = (Object) rs.getDate(6);
-            data[index][5] = (Object) rs.getString(7);
             index++;
         }
         DefaultTableModel dm = new DefaultTableModel();
@@ -202,18 +194,25 @@ public class WidokAdmin implements ActionListener{
     }
 
     protected void edytujPracownika(String id) throws SQLException {
-        int id_prac = Integer.parseInt(id);
+        int id_prac;
+        if (id ==""){
+            id_prac = 0;
+        }else {
+            id_prac = Integer.parseInt(id);
+        }
         dbHandler = DBHandler.wezInstancje();
         Connection connection = dbHandler.getDeskryptorPolaczenia();
         Statement stmt = connection.createStatement();
-        String getPracownikSQL = "SELECT PRACOWNIK_ID, IMIE, NAZWISKO, DATA_URODZENIA, PLEC, NR_KONTA, PESEL, ZATRUDNIONY_OD, ZATRUDNIONY_DO from PRACOWNICY WHERE PRACOWNIK_ID=" + id_prac;
+        String getPracownikSQL = "SELECT p.PRACOWNIK_ID, p.IMIE, p.NAZWISKO, p.DATA_URODZENIA, p.PLEC, p.NR_KONTA, p.PESEL, p.ZATRUDNIONY_OD, p.ZATRUDNIONY_DO, p.ADRES_ID, a.ULICA, a.NR_BUDYNKU, a.NR_MIESZKANIA, a.MIASTO from PRACOWNICY p INNER JOIN ADRESY a ON p.ADRES_ID = a.ADRES_ID WHERE PRACOWNIK_ID=" + id_prac;
         ResultSet rs = stmt.executeQuery(getPracownikSQL);
-        String imie = "";
+        String imie = "", ulica ="", nrBud = "", miasto = "";
         String nazwisko = "";
         char plec =' ';
         String pesel ="";
         Date dataUr =null, zatrOd = null, zatrDo=null;
         String nrKonta="";
+        int nrMiesz = 0;
+        int addresID = 0;
         while (rs.next()){
             imie = rs.getString("IMIE");
             nazwisko = rs.getString("NAZWISKO");
@@ -223,12 +222,16 @@ public class WidokAdmin implements ActionListener{
             zatrOd = rs.getDate("ZATRUDNIONY_OD");
             zatrDo = rs.getDate("ZATRUDNIONY_DO");
             nrKonta = rs.getString("NR_KONTA");
+            ulica = rs.getString("ULICA");
+            nrBud = rs.getString("NR_BUDYNKU");
+            miasto = rs.getString("MIASTO");
+            nrMiesz = rs.getInt("NR_MIESZKANIA");
+            addresID = rs.getInt("ADRES_ID");
         }
-        System.out.println(dataUr);
         rs.close();
         stmt.close();
         frame.getContentPane().remove(kontentPanel);
-        PracownikWidok widok = new PracownikWidok(this, id_prac, imie,nazwisko, pesel, plec, dataUr, zatrOd,zatrDo, nrKonta);
+        PracownikWidok widok = new PracownikWidok(this, id_prac, imie,nazwisko, pesel, plec, dataUr, zatrOd,zatrDo, nrKonta, ulica, nrBud, nrMiesz, miasto, addresID);
         kontentPanel = widok.getPanel1();
         kontentPanel.setVisible(true);
         panelGlownyAdmin.repaint();
@@ -238,10 +241,19 @@ public class WidokAdmin implements ActionListener{
 
 
     private void dodajPracownika() {
+        frame.getContentPane().remove(kontentPanel);
+        kontentPanel.removeAll();
+        PracownikWidok widok = new PracownikWidok(this);
+        kontentPanel.add(widok.getPanel1());
+        kontentPanel.setVisible(true);
+        panelGlownyAdmin.repaint();
+        frame.getContentPane().add(kontentPanel);
+        frame.revalidate();
     }
 
     private void znajdzPracownika() {
         frame.getContentPane().remove(kontentPanel);
+        kontentPanel.removeAll();
         SzukajWidok widok = new SzukajWidok(this);
         kontentPanel = widok.getPanel1();
         kontentPanel.setVisible(true);

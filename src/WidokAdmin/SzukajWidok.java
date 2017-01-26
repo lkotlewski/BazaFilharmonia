@@ -14,7 +14,6 @@ public class SzukajWidok implements ActionListener{
     private JPanel panel1;
     private JTextField nazwiskoTextField;
     private JTextField peselTextField;
-    private JTextField filharmoniaTextField;
     private JButton szukajButton;
 
     public SzukajWidok(WidokAdmin jframe){
@@ -27,7 +26,7 @@ public class SzukajWidok implements ActionListener{
     @Override
     public void actionPerformed(ActionEvent e) {
         try {
-            jFrame.filtrujPracownikow(imieTextField.getText(),nazwiskoTextField.getText(), peselTextField.getText(), filharmoniaTextField.getText() );
+            jFrame.filtrujPracownikow(imieTextField.getText(),nazwiskoTextField.getText(), peselTextField.getText());
         } catch (SQLException e1) {
             e1.printStackTrace();
         }

@@ -5,6 +5,8 @@
       <xy x="20" y="20" width="500" height="400"/>
     </constraints>
     <properties>
+      <background color="-13816015"/>
+      <foreground color="-3486000"/>
       <maximumSize width="500" height="231"/>
       <minimumSize width="500" height="231"/>
       <preferredSize width="500" height="231"/>
@@ -14,16 +16,19 @@
       <component id="bfb75" class="javax.swing.JLabel">
         <constraints/>
         <properties>
-          <enabled value="false"/>
+          <enabled value="true"/>
+          <font name="Lucida Sans Typewriter" size="12" style="2"/>
+          <foreground color="-13509112"/>
           <maximumSize width="200" height="16"/>
           <minimumSize width="200" height="16"/>
           <preferredSize width="200" height="16"/>
-          <text value="IMIE"/>
+          <text value="Imie"/>
         </properties>
       </component>
       <component id="71645" class="javax.swing.JTextField" binding="imieTextField" default-binding="true">
         <constraints/>
         <properties>
+          <foreground color="-16777216"/>
           <maximumSize width="200" height="24"/>
           <minimumSize width="200" height="24"/>
           <preferredSize width="200" height="24"/>
@@ -33,16 +38,19 @@
       <component id="3394a" class="javax.swing.JLabel">
         <constraints/>
         <properties>
-          <enabled value="false"/>
+          <enabled value="true"/>
+          <font name="Lucida Sans Typewriter" size="12" style="2"/>
+          <foreground color="-13509112"/>
           <maximumSize width="200" height="16"/>
           <minimumSize width="200" height="16"/>
           <preferredSize width="200" height="16"/>
-          <text value="NAZWISKO"/>
+          <text value="Nazwisko"/>
         </properties>
       </component>
       <component id="c6bab" class="javax.swing.JTextField" binding="nazwiskoTextField">
         <constraints/>
         <properties>
+          <foreground color="-16777216"/>
           <maximumSize width="200" height="24"/>
           <minimumSize width="200" height="24"/>
           <preferredSize width="200" height="24"/>
@@ -52,35 +60,19 @@
       <component id="66572" class="javax.swing.JLabel">
         <constraints/>
         <properties>
-          <enabled value="false"/>
+          <enabled value="true"/>
+          <font name="Lucida Sans Typewriter" size="12" style="2"/>
+          <foreground color="-13509112"/>
           <maximumSize width="200" height="16"/>
           <minimumSize width="200" height="16"/>
           <preferredSize width="200" height="16"/>
-          <text value="PESEL"/>
+          <text value="Pesel"/>
         </properties>
       </component>
       <component id="6e910" class="javax.swing.JTextField" binding="peselTextField">
         <constraints/>
         <properties>
-          <maximumSize width="200" height="24"/>
-          <minimumSize width="200" height="24"/>
-          <preferredSize width="200" height="24"/>
-          <text value=""/>
-        </properties>
-      </component>
-      <component id="925a7" class="javax.swing.JLabel">
-        <constraints/>
-        <properties>
-          <enabled value="false"/>
-          <maximumSize width="200" height="16"/>
-          <minimumSize width="200" height="16"/>
-          <preferredSize width="200" height="16"/>
-          <text value="NAZWA FILHARMONII"/>
-        </properties>
-      </component>
-      <component id="6807d" class="javax.swing.JTextField" binding="filharmoniaTextField">
-        <constraints/>
-        <properties>
+          <foreground color="-16777216"/>
           <maximumSize width="200" height="24"/>
           <minimumSize width="200" height="24"/>
           <preferredSize width="200" height="24"/>
@@ -90,6 +82,9 @@
       <component id="293a9" class="javax.swing.JButton" binding="szukajButton" default-binding="true">
         <constraints/>
         <properties>
+          <background color="-13816015"/>
+          <font name="Lucida Sans Typewriter" size="12" style="2"/>
+          <foreground color="-13509112"/>
           <maximumSize width="105" height="32"/>
           <minimumSize width="105" height="32"/>
           <preferredSize width="105" height="32"/>

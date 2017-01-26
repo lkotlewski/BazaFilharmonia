@@ -5,25 +5,110 @@
       <xy x="20" y="20" width="500" height="400"/>
     </constraints>
     <properties>
+      <background color="-13816015"/>
       <maximumSize width="500" height="231"/>
       <minimumSize width="500" height="231"/>
       <preferredSize width="500" height="231"/>
     </properties>
     <border type="none"/>
     <children>
+      <component id="efcb1" class="javax.swing.JLabel">
+        <constraints/>
+        <properties>
+          <font name="Lucida Sans Typewriter" size="12" style="2"/>
+          <foreground color="-13509112"/>
+          <maximumSize width="100" height="16"/>
+          <minimumSize width="100" height="16"/>
+          <preferredSize width="100" height="16"/>
+          <text value="Ulica"/>
+        </properties>
+      </component>
+      <component id="668a9" class="javax.swing.JTextField" binding="ulicaField">
+        <constraints/>
+        <properties>
+          <foreground color="-16777216"/>
+          <maximumSize width="140" height="16"/>
+          <minimumSize width="140" height="16"/>
+          <preferredSize width="140" height="16"/>
+        </properties>
+      </component>
+      <component id="32724" class="javax.swing.JLabel">
+        <constraints/>
+        <properties>
+          <font name="Lucida Sans Typewriter" size="12" style="2"/>
+          <foreground color="-13509112"/>
+          <maximumSize width="100" height="18"/>
+          <minimumSize width="100" height="18"/>
+          <preferredSize width="100" height="18"/>
+          <text value="Miasto"/>
+        </properties>
+      </component>
+      <component id="2059c" class="javax.swing.JTextField" binding="miastoField">
+        <constraints/>
+        <properties>
+          <foreground color="-16777216"/>
+          <maximumSize width="140" height="16"/>
+          <minimumSize width="140" height="16"/>
+          <preferredSize width="140" height="16"/>
+        </properties>
+      </component>
+      <component id="75192" class="javax.swing.JLabel">
+        <constraints/>
+        <properties>
+          <font name="Lucida Sans Typewriter" size="12" style="2"/>
+          <foreground color="-13509112"/>
+          <maximumSize width="100" height="16"/>
+          <minimumSize width="100" height="16"/>
+          <preferredSize width="100" height="16"/>
+          <requestFocusEnabled value="true"/>
+          <text value="Nr domu"/>
+        </properties>
+      </component>
+      <component id="429fa" class="javax.swing.JTextField" binding="nrDomuField">
+        <constraints/>
+        <properties>
+          <foreground color="-16777216"/>
+          <maximumSize width="140" height="16"/>
+          <minimumSize width="140" height="16"/>
+          <preferredSize width="140" height="16"/>
+        </properties>
+      </component>
+      <component id="d12cb" class="javax.swing.JLabel">
+        <constraints/>
+        <properties>
+          <font name="Lucida Sans Typewriter" size="12" style="2"/>
+          <foreground color="-13509112"/>
+          <maximumSize width="100" height="16"/>
+          <minimumSize width="100" height="16"/>
+          <preferredSize width="100" height="16"/>
+          <text value="Nr mieszkania"/>
+        </properties>
+      </component>
+      <component id="360c8" class="javax.swing.JTextField" binding="nrMieszField">
+        <constraints/>
+        <properties>
+          <foreground color="-16777216"/>
+          <maximumSize width="140" height="16"/>
+          <minimumSize width="140" height="16"/>
+          <preferredSize width="140" height="16"/>
+        </properties>
+      </component>
       <component id="645a6" class="javax.swing.JLabel">
         <constraints/>
         <properties>
+          <font name="Lucida Sans Typewriter" size="12" style="2"/>
+          <foreground color="-13509112"/>
           <horizontalTextPosition value="11"/>
           <maximumSize width="100" height="16"/>
           <minimumSize width="100" height="16"/>
           <preferredSize width="100" height="16"/>
-          <text value="IMIE"/>
+          <text value="Imie"/>
         </properties>
       </component>
       <component id="d53e6" class="javax.swing.JTextField" binding="imieField">
         <constraints/>
         <properties>
+          <foreground color="-16777216"/>
           <maximumSize width="390" height="16"/>
           <minimumSize width="390" height="16"/>
           <preferredSize width="390" height="16"/>
@@ -32,16 +117,19 @@
       <component id="a9b7b" class="javax.swing.JLabel">
         <constraints/>
         <properties>
+          <font name="Lucida Sans Typewriter" size="12" style="2"/>
+          <foreground color="-13509112"/>
           <horizontalTextPosition value="11"/>
           <maximumSize width="100" height="16"/>
           <minimumSize width="100" height="16"/>
           <preferredSize width="100" height="16"/>
-          <text value="NAZWISKO"/>
+          <text value="Nazwisko"/>
         </properties>
       </component>
       <component id="8dad7" class="javax.swing.JTextField" binding="nazwiskoField">
         <constraints/>
         <properties>
+          <foreground color="-16777216"/>
           <maximumSize width="390" height="16"/>
           <minimumSize width="390" height="16"/>
           <preferredSize width="390" height="16"/>
@@ -50,16 +138,19 @@
       <component id="1d6ba" class="javax.swing.JLabel">
         <constraints/>
         <properties>
+          <font name="Lucida Sans Typewriter" size="12" style="2"/>
+          <foreground color="-13509112"/>
           <horizontalTextPosition value="11"/>
           <maximumSize width="100" height="16"/>
           <minimumSize width="100" height="16"/>
           <preferredSize width="100" height="16"/>
-          <text value="DATA URODZENIA"/>
+          <text value="Data urodzenia"/>
         </properties>
       </component>
       <component id="1efa0" class="javax.swing.JTextField" binding="dataUrodField">
         <constraints/>
         <properties>
+          <foreground color="-16777216"/>
           <maximumSize width="390" height="16"/>
           <minimumSize width="390" height="16"/>
           <preferredSize width="390" height="16"/>
@@ -68,44 +159,55 @@
       <component id="5df72" class="javax.swing.JLabel">
         <constraints/>
         <properties>
+          <font name="Lucida Sans Typewriter" size="12" style="2"/>
+          <foreground color="-13509112"/>
           <horizontalTextPosition value="11"/>
           <maximumSize width="100" height="16"/>
           <minimumSize width="100" height="16"/>
           <preferredSize width="100" height="16"/>
-          <text value="PŁEC"/>
+          <text value="Plec"/>
         </properties>
       </component>
       <component id="1937e" class="javax.swing.JRadioButton" binding="KOBIETARadioButton" default-binding="true">
         <constraints/>
         <properties>
+          <background color="-13816015"/>
+          <font name="Lucida Sans Typewriter" size="12" style="2"/>
+          <foreground color="-13509112"/>
           <maximumSize width="190" height="18"/>
           <minimumSize width="190" height="18"/>
           <preferredSize width="190" height="18"/>
-          <text value="KOBIETA"/>
+          <text value="Kobieta"/>
         </properties>
       </component>
       <component id="5f215" class="javax.swing.JRadioButton" binding="MEZCZYZNARadioButton">
         <constraints/>
         <properties>
+          <background color="-13816015"/>
+          <font name="Lucida Sans Typewriter" size="12" style="2"/>
+          <foreground color="-13509112"/>
           <maximumSize width="190" height="18"/>
           <minimumSize width="190" height="18"/>
           <preferredSize width="190" height="18"/>
-          <text value="MEZCZYZNA"/>
+          <text value="Mezczyzna"/>
         </properties>
       </component>
       <component id="9af26" class="javax.swing.JLabel">
         <constraints/>
         <properties>
+          <font name="Lucida Sans Typewriter" size="12" style="2"/>
+          <foreground color="-13509112"/>
           <horizontalTextPosition value="11"/>
           <maximumSize width="100" height="16"/>
           <minimumSize width="100" height="16"/>
           <preferredSize width="100" height="16"/>
-          <text value="NUMER KONTA"/>
+          <text value="Numer konta"/>
         </properties>
       </component>
       <component id="f48b3" class="javax.swing.JTextField" binding="numerKontaField">
         <constraints/>
         <properties>
+          <foreground color="-16777216"/>
           <maximumSize width="390" height="16"/>
           <minimumSize width="390" height="16"/>
           <preferredSize width="390" height="16"/>
@@ -114,17 +216,20 @@
       <component id="7f644" class="javax.swing.JLabel">
         <constraints/>
         <properties>
+          <font name="Lucida Sans Typewriter" size="12" style="2"/>
+          <foreground color="-13509112"/>
           <horizontalTextPosition value="11"/>
           <maximumSize width="100" height="16"/>
           <minimumSize width="100" height="16"/>
           <preferredSize width="100" height="16"/>
           <requestFocusEnabled value="true"/>
-          <text value="PESEL"/>
+          <text value="Pesel"/>
         </properties>
       </component>
       <component id="698eb" class="javax.swing.JTextField" binding="peselField">
         <constraints/>
         <properties>
+          <foreground color="-16777216"/>
           <maximumSize width="390" height="16"/>
           <minimumSize width="390" height="16"/>
           <preferredSize width="390" height="16"/>
@@ -133,51 +238,63 @@
       <component id="eb4e6" class="javax.swing.JLabel">
         <constraints/>
         <properties>
+          <font name="Lucida Sans Typewriter" size="12" style="2"/>
+          <foreground color="-13509112"/>
           <horizontalTextPosition value="11"/>
           <maximumSize width="105" height="16"/>
           <minimumSize width="105" height="16"/>
           <preferredSize width="105" height="16"/>
           <requestFocusEnabled value="true"/>
-          <text value="ZATRUDNIONY OD"/>
+          <text value="Zatrudniony od"/>
         </properties>
       </component>
       <component id="97f30" class="javax.swing.JTextField" binding="zatrOdField">
         <constraints/>
         <properties>
-          <maximumSize width="385" height="16"/>
-          <minimumSize width="385" height="16"/>
-          <preferredSize width="385" height="16"/>
+          <foreground color="-16777216"/>
+          <maximumSize width="135" height="16"/>
+          <minimumSize width="135" height="16"/>
+          <preferredSize width="135" height="16"/>
         </properties>
       </component>
       <component id="4f967" class="javax.swing.JLabel">
         <constraints/>
         <properties>
+          <font name="Lucida Sans Typewriter" size="12" style="2"/>
+          <foreground color="-13509112"/>
           <horizontalTextPosition value="11"/>
           <maximumSize width="105" height="16"/>
           <minimumSize width="105" height="16"/>
           <preferredSize width="105" height="16"/>
           <requestFocusEnabled value="true"/>
-          <text value="ZATRUDNIONY DO"/>
+          <text value="Zatrudniony do"/>
         </properties>
       </component>
       <component id="996fd" class="javax.swing.JTextField" binding="zatrDoField">
         <constraints/>
         <properties>
-          <maximumSize width="385" height="16"/>
-          <minimumSize width="385" height="16"/>
-          <preferredSize width="385" height="16"/>
+          <foreground color="-16777216"/>
+          <maximumSize width="135" height="16"/>
+          <minimumSize width="135" height="16"/>
+          <preferredSize width="135" height="16"/>
         </properties>
       </component>
       <component id="9f99c" class="javax.swing.JButton" binding="zapiszBtn">
         <constraints/>
         <properties>
-          <text value="ZAPISZ"/>
+          <background color="-13816015"/>
+          <font name="Lucida Sans Typewriter" size="12" style="2"/>
+          <foreground color="-13509112"/>
+          <text value="Zapisz"/>
         </properties>
       </component>
       <component id="f64cc" class="javax.swing.JButton" binding="cofnijBtn">
         <constraints/>
         <properties>
-          <text value="COFNIJ"/>
+          <background color="-13816015"/>
+          <font name="Lucida Sans Typewriter" size="12" style="2"/>
+          <foreground color="-13509112"/>
+          <text value="Cofnij"/>
         </properties>
       </component>
     </children>
