@@ -1,9 +1,7 @@
 package Loger;
-
 import DBHandler.DBHandler;
 import WidokKlient.WidokKlient;
 import org.apache.commons.lang.mutable.MutableInt;
-
 import javax.swing.*;
 import java.io.Console;
 import java.sql.*;
