@@ -123,7 +123,7 @@ public class WidokKlient  {
              ) {
             System.out.println(dane[i][0]);
         }
-        Object[] nazwyKolumn = {"realizacja_id","tytul","data"};
+        Object[] nazwyKolumn = {"tytul","data"};
         TableModel naszModel = new DefaultTableModel(dane,nazwyKolumn);
         tabelaWynikow.setModel(naszModel);
         tabelaWynikow.setOpaque(true);
