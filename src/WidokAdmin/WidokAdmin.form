@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="WidokAdmin.WidokAdmin">
+  <grid id="27dc6" binding="panelGlownyAdmin" layout-manager="FlowLayout" hgap="5" vgap="5" flow-align="1">
+    <constraints>
+      <xy x="20" y="6" width="500" height="414"/>
+    </constraints>
+    <properties>
+      <maximumSize width="500" height="300"/>
+      <minimumSize width="500" height="300"/>
+      <preferredSize width="500" height="300"/>
+      <toolTipText value=""/>
+    </properties>
+    <border type="none"/>
+    <children>
+      <component id="8ef98" class="javax.swing.JButton" binding="pracownicyBtn">
+        <constraints/>
+        <properties>
+          <actionCommand value="wszyscy pracownicy"/>
+          <name value="wszyscy"/>
+          <text value="Wszyscy pracownicy"/>
+        </properties>
+      </component>
+      <component id="ea6a8" class="javax.swing.JButton" binding="znajdzPracownikaBtn">
+        <constraints/>
+        <properties>
+          <actionCommand value="znajdz pracownika"/>
+          <label value="Znajdz pracownika"/>
+          <text value="Znajdz pracownika"/>
+        </properties>
+      </component>
+      <component id="7e6f6" class="javax.swing.JButton" binding="dodajPracownikaBtn">
+        <constraints/>
+        <properties>
+          <name value="znajdz"/>
+          <text value="Dodaj"/>
+        </properties>
+      </component>
+      <grid id="4404e" binding="kontentPanel" layout-manager="BorderLayout" hgap="0" vgap="0">
+        <constraints/>
+        <properties>
+          <maximumSize width="500" height="231"/>
+          <minimumSize width="500" height="231"/>
+          <preferredSize width="500" height="231"/>
+        </properties>
+        <border type="none"/>
+        <children/>
+      </grid>
+    </children>
+  </grid>
+</form>
