@@ -1,14 +1,14 @@
 package WidokKlient;
 
+import Bilet.Bilet;
 import DBHandler.DBHandler;
 import RealizacjaKoncertu.RealizacjaKoncertu;
 import org.apache.commons.lang.mutable.MutableInt;
 
 import java.lang.Object;
-import java.util.ArrayList;
+import java.math.BigDecimal;
 import java.util.Vector;
 import javax.swing.*;
-import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.*;
@@ -27,7 +27,8 @@ public class WidokKlient  {
     private JTable tabelaWynikow;
     private JPanel panelKup;
     private JButton kupPrzycisk;
-    private JComboBox comboBox1;
+    private JComboBox znizki;
+    private JCheckBox czyZnizka;
     private static Connection deskryptorPolaczenia;
     private MutableInt klientID;
 
@@ -40,14 +41,15 @@ public class WidokKlient  {
         this.klientID = klientID;
     }
 
-    public WidokKlient() {
+    public WidokKlient(MutableInt klientID) {
+        this.klientID = klientID;
         repertuarPrzycisk.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 tabelaWynikow.setVisible(true);
 
                 try {
-                wyswietlRealizacje();
+                    wyswietlRepertuar();
                 }
                 catch (Exception wyj) {
                     wyj.printStackTrace();
@@ -56,11 +58,115 @@ public class WidokKlient  {
 
             }
         });
+        kupPrzycisk.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                int znizkaID;
+                BigDecimal realizacjaID;
+                String polecenie;
+                CallableStatement stmt = null;
+                Vector<RealizacjaKoncertu> realizacjeList = wezRealizacjeList();
+                int wybranaRealizcja = tabelaWynikow.getSelectedRow();
+                if (wybranaRealizcja == -1)
+                    JOptionPane.showMessageDialog(null,"Wybierz koncert na, który chcesz kupić bilet");
+                else {
+                    System.out.println(wybranaRealizcja);
+                    if (czyZnizka.isSelected())
+                        znizkaID = znizki.getSelectedIndex() + 1;
+                    else
+                        znizkaID = 0;
+                    realizacjaID = realizacjeList.get(wybranaRealizcja).getRealizacjaID();
+                    DBHandler mojhandler = DBHandler.wezInstancje();
+                    mojhandler.otworzPolaczenie();
+
+                    try {
+                        String sql = "{call wystaw_bilet (?, ?, ?)}";
+                        MutableInt mu = new MutableInt(getKlientID());
+                        System.out.println(klientID.intValue());
+                        int klientIDint = klientID.intValue();
+                        BigDecimal klientID = new BigDecimal(klientIDint);
+                        BigDecimal znizkaIDbigD = new BigDecimal(znizkaID);
+                        stmt = mojhandler.getDeskryptorPolaczenia().prepareCall(sql);
+                        stmt.setBigDecimal(1, realizacjaID);
+                        stmt.setBigDecimal(2, klientID);
+                        stmt.setBigDecimal(3,znizkaIDbigD);
+                        //Use execute method to run stored procedure.
+                        System.out.println("Executing stored procedure..." );
+                        stmt.execute();
+                        mojhandler.getDeskryptorPolaczenia().commit();
+                        stmt.close();
+                        JOptionPane.showMessageDialog(null,"Zakupiono bilet");
+                    }
+                    catch (Exception wyj){
+                        wyj.printStackTrace();
+                    }
+                }
+
+            }
+        });
+        czyZnizka.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if (czyZnizka.isSelected())
+                    znizki.setVisible(true);
+                else znizki.setVisible(false);
+            }
+        });
+        wyswRezPrzycisk.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+                DBHandler mojhandler = DBHandler.wezInstancje();
+                mojhandler.otworzPolaczenie();
+                try {
+                    int klientIDint = klientID.intValue();
+                    Statement stmt = mojhandler.getDeskryptorPolaczenia().createStatement();
+                    String getBilety = "SELECT Tytul, Data, Cena from bilety natural join realizacje_koncertu WHERE klient_ID= " + klientIDint;
+                    ResultSet rs = stmt.executeQuery(getBilety);
+                    Vector<Bilet> biletyKlienta = new Vector<Bilet>();
+                    Bilet bilet = new Bilet();
+
+                    while (rs.next()) {
+                        bilet = new Bilet(rs.getString("Tytul"),rs.getTimestamp("Data"),rs.getBigDecimal("Cena"));
+                        biletyKlienta.add(bilet);
+                    }
+                    rs.close();
+                    stmt.close();
+
+                    Object[][] dane = new Object[biletyKlienta.size()][3];
+                    while(tabelaWynikow.getRowCount() > 0)
+                    {
+                        ((DefaultTableModel) tabelaWynikow.getModel()).removeRow(0);
+                    }
+                    for(int i = 0; i < biletyKlienta.size(); i++)
+                    {
+                        dane[i][0] = biletyKlienta.get(i).getTytul();
+                        dane[i][1] = biletyKlienta.get(i).getDataK();
+                        dane[i][2] = biletyKlienta.get(i).getCena();
+                    }
+                    for (int i = 0; i < biletyKlienta.size(); i++
+                            ) {
+                        System.out.println(dane[i][0]);
+                    }
+                    Object[] nazwyKolumn = {"tytul","data","cena"};
+                    TableModel naszModel = new DefaultTableModel(dane,nazwyKolumn);
+                    tabelaWynikow.setModel(naszModel);
+                    tabelaWynikow.setOpaque(true);
+                    kupPrzycisk.setVisible(false);
+                    czyZnizka.setVisible(false);
+
+
+                }
+                catch (Exception wyj){
+                    wyj.printStackTrace();
+                }
+            }
+        });
     }
 
     public void wyswietlPanelKlienta() {
         JFrame frame = new JFrame("WidokKlient");
-        frame.setContentPane(new WidokKlient().panel1);
+        frame.setContentPane(new WidokKlient(klientID).panel1);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.pack();
         frame.setVisible(true);
@@ -69,14 +175,13 @@ public class WidokKlient  {
 
     public Vector<RealizacjaKoncertu> wezRealizacjeList()
     {
-        Vector<RealizacjaKoncertu> realizacjeList = new Vector<RealizacjaKoncertu>();
-
+        Vector<RealizacjaKoncertu> realizacjeListFun= new Vector<RealizacjaKoncertu>();
 
         try {
             DBHandler mojhandler = DBHandler.wezInstancje();
             mojhandler.otworzPolaczenie();
             Statement zapytanie = mojhandler.getDeskryptorPolaczenia().createStatement();
-            ResultSet spisRealizacji = zapytanie.executeQuery("SELECT * FROM Realizacje_Koncertu");
+            ResultSet spisRealizacji = zapytanie.executeQuery("SELECT * FROM Realizacje_Koncertu rea ORDER BY rea.data ASC");
             RealizacjaKoncertu realizacja = new RealizacjaKoncertu();
 
             ResultSetMetaData metaData = spisRealizacji.getMetaData();
@@ -89,21 +194,20 @@ public class WidokKlient  {
             {
                 realizacja = new RealizacjaKoncertu(spisRealizacji.getBigDecimal("realizacja_id"),spisRealizacji.getString("tytul"),
                         spisRealizacji.getTimestamp("data"),spisRealizacji.getBigDecimal("sala_id"),spisRealizacji.getBigDecimal("koncert_id"));
-                realizacjeList.add(realizacja);
-               // System.out.println(realizacja.getTytul());
+                realizacjeListFun.add(realizacja);
+                // System.out.println(realizacja.getTytul());
             }
 
         }
         catch (Exception e) {
             e.printStackTrace();
         }
-        return realizacjeList;
+        return realizacjeListFun;
     }
 
-    public void wyswietlRealizacje()
+    public void wyswietlRepertuar()
     {
         Vector<RealizacjaKoncertu> realizacjeList = wezRealizacjeList();
-       // DefaultTableModel model = (DefaultTableModel)tabelaWynikow.getModel();
         Object[][] dane = new Object[realizacjeList.size()][2];
         while(tabelaWynikow.getRowCount() > 0)
         {
@@ -111,31 +215,19 @@ public class WidokKlient  {
         }
         for(int i = 0; i < realizacjeList.size(); i++)
         {
-           // dane[i][0] = realizacjeList.get(i).getRealizacjaID();
             dane[i][0] = realizacjeList.get(i).getTytul();
             dane[i][1] = realizacjeList.get(i).getData();
-            //dane[i][3] = realizacjeList.get(i).getSalaID();
-            //dane[i][4] = realizacjeList.get(i).getKoncertID();
-        //    model.addRow(dane[i]);
-
         }
         for (int i = 0; i < realizacjeList.size(); i++
-             ) {
+                ) {
             System.out.println(dane[i][0]);
         }
         Object[] nazwyKolumn = {"tytul","data"};
         TableModel naszModel = new DefaultTableModel(dane,nazwyKolumn);
         tabelaWynikow.setModel(naszModel);
         tabelaWynikow.setOpaque(true);
-       // tabelaWynikow.getColumn(2).getResizable();
-       // tabelaWynikow.getColumn(2).setPreferredWidth(0);
-        /*tabelaWynikow.getColumn(0).setMaxWidth(0);
-        tabelaWynikow.getColumn(1).setMinWidth(50);
-        tabelaWynikow.getColumn(2).setMinWidth(50);
-       */
-
-
-
+        kupPrzycisk.setVisible(true);
+        czyZnizka.setVisible(true);
 
     }
 

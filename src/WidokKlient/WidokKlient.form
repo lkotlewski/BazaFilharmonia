@@ -17,7 +17,9 @@
           <foreground color="-13816015"/>
           <verifyInputWhenFocusTarget value="false"/>
         </properties>
-        <border type="none"/>
+        <border type="none">
+          <title-color color="-13816015"/>
+        </border>
         <children>
           <component id="f70f5" class="javax.swing.JButton" binding="repertuarPrzycisk">
             <constraints/>
@@ -59,16 +61,20 @@
           <background color="-13816015"/>
           <doubleBuffered value="false"/>
           <font name="Monotype Corsiva" size="12"/>
-          <foreground color="-2892067"/>
+          <foreground color="-13816015"/>
           <minimumSize width="500" height="600"/>
           <preferredSize width="400" height="200"/>
           <requestFocusEnabled value="false"/>
         </properties>
-        <border type="none"/>
+        <border type="none">
+          <title-color color="-13816015"/>
+        </border>
         <children>
           <scrollpane id="35b13">
             <constraints/>
             <properties>
+              <background color="-13816015"/>
+              <foreground color="-13509112"/>
               <preferredSize width="420" height="200"/>
             </properties>
             <border type="none"/>
@@ -83,7 +89,7 @@
                   <minimumSize width="400" height="200"/>
                   <preferredSize width="450" height="200"/>
                   <rowHeight value="32"/>
-                  <selectionBackground color="-15759549"/>
+                  <selectionBackground color="-13509112"/>
                   <selectionForeground color="-11579816"/>
                 </properties>
               </component>
@@ -96,43 +102,102 @@
         <properties>
           <background color="-13816015"/>
           <foreground color="-11579816"/>
+          <preferredSize width="200" height="54"/>
         </properties>
-        <border type="none"/>
+        <border type="none">
+          <title-color color="-13816015"/>
+        </border>
         <children>
-          <component id="ebe7d" class="javax.swing.JComboBox" binding="comboBox1" default-binding="true">
+          <grid id="b57c8" layout-manager="BorderLayout" hgap="0" vgap="0">
             <constraints>
-              <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
+              <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
               <gridbag weightx="0.0" weighty="0.0"/>
             </constraints>
             <properties>
-              <background color="-11579816"/>
-              <foreground color="-13509112"/>
-              <model>
-                <item value="15% tanie wtorki"/>
-                <item value="51% legitymacja szkolna"/>
-                <item value="60% legitymacja studencka"/>
-              </model>
+              <background color="-13816015"/>
+              <foreground color="-13816015"/>
+              <preferredSize width="65" height="50"/>
             </properties>
-          </component>
-          <vspacer id="bda61">
+            <border type="none"/>
+            <children>
+              <component id="c0d6" class="javax.swing.JButton" binding="kupPrzycisk">
+                <constraints border-constraint="North"/>
+                <properties>
+                  <autoscrolls value="false"/>
+                  <background color="-11579816"/>
+                  <font name="Monotype Corsiva" size="16"/>
+                  <foreground color="-13509112"/>
+                  <margin top="2" left="14" bottom="10" right="14"/>
+                  <text value="Kup"/>
+                  <visible value="false"/>
+                </properties>
+              </component>
+            </children>
+          </grid>
+          <grid id="8c481" layout-manager="GridBagLayout">
             <constraints>
-              <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
-              <gridbag top="0" left="0" bottom="40" right="0" weightx="30.0" weighty="0.0"/>
-            </constraints>
-          </vspacer>
-          <component id="c0d6" class="javax.swing.JButton" binding="kupPrzycisk">
-            <constraints>
-              <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+              <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
               <gridbag weightx="0.0" weighty="0.0"/>
             </constraints>
             <properties>
-              <autoscrolls value="false"/>
-              <background color="-11579816"/>
-              <font name="Monotype Corsiva" size="16"/>
-              <foreground color="-13509112"/>
-              <text value="Kup"/>
+              <background color="-13816015"/>
+              <foreground color="-13816015"/>
+              <preferredSize width="176" height="23"/>
             </properties>
-          </component>
+            <border type="none"/>
+            <children>
+              <component id="ebe7d" class="javax.swing.JComboBox" binding="znizki">
+                <constraints>
+                  <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
+                  <gridbag weightx="0.0" weighty="0.0"/>
+                </constraints>
+                <properties>
+                  <background color="-11579816"/>
+                  <foreground color="-13509112"/>
+                  <model>
+                    <item value="15% złota karta"/>
+                    <item value="51% legitymacja szkolna"/>
+                    <item value="60% legitymacja studencka"/>
+                  </model>
+                  <visible value="false"/>
+                </properties>
+              </component>
+            </children>
+          </grid>
+          <grid id="eadd9" layout-manager="GridBagLayout">
+            <constraints>
+              <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+              <gridbag weightx="0.0" weighty="0.0"/>
+            </constraints>
+            <properties>
+              <background color="-13816015"/>
+              <foreground color="-13816015"/>
+              <preferredSize width="173" height="50"/>
+              <visible value="true"/>
+            </properties>
+            <border type="none">
+              <title-color color="-13816015"/>
+            </border>
+            <children>
+              <component id="1d6d" class="javax.swing.JCheckBox" binding="czyZnizka">
+                <constraints>
+                  <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                  <gridbag weightx="0.0" weighty="0.0"/>
+                </constraints>
+                <properties>
+                  <background color="-13816015"/>
+                  <borderPainted value="false"/>
+                  <borderPaintedFlat value="false"/>
+                  <contentAreaFilled value="false"/>
+                  <font name="Monotype Corsiva" size="14"/>
+                  <foreground color="-13509112"/>
+                  <preferredSize width="173" height="24"/>
+                  <text value="zniżka"/>
+                  <visible value="false"/>
+                </properties>
+              </component>
+            </children>
+          </grid>
         </children>
       </grid>
     </children>
