@@ -4,6 +4,7 @@ import Loger.Loger;
 import WidokKlient.WidokKlient;
 import WidokAdmin.WidokAdmin;
 
+import WidokKsiegowy.WidokKsiegowy;
 import org.apache.commons.lang.mutable.MutableInt;
 import javax.swing.*;
 import java.awt.event.ActionEvent;
@@ -50,17 +51,21 @@ public class FormularzStartowy extends JFrame implements ActionListener{
             MutableInt klientID = new MutableInt();
             if (loger.zaloguj(klientID)){
                 JOptionPane.showMessageDialog(null, "Zalogowano pomyślnie");
-				if (typ == 1){
-					WidokAdmin widok = new WidokAdmin();
+				if (typ == 1) {
+                    WidokAdmin widok = new WidokAdmin();
+                    new Thread(() -> widok.wyswietl()).start();
+                    this.setVisible(false);
+                    this.dispose();
+                } else if (typ == 2){
+                    WidokKsiegowy widok = new WidokKsiegowy();
                     new Thread(()->widok.wyswietl()).start();
-					this.setVisible(false);
-					this.dispose();
-				}
-                if (typ == 3)
+                    this.setVisible(false);
+                    this.dispose();
+                }
+                else if (typ == 3)
                 {
-
-                    WidokKlient widok = new WidokKlient(klientID);
-                   // widok.setKlientID(klientID);
+                    WidokKlient widok = new WidokKlient();
+                    widok.setKlientID(klientID);
                     new Thread(()->widok.wyswietlPanelKlienta()).start();
                     this.setVisible(false);
                     this.dispose();
