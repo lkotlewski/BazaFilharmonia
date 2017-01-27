@@ -170,6 +170,7 @@ public class WidokKlient  {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.pack();
         frame.setVisible(true);
+        frame.setResizable(false);
 
     }
 
