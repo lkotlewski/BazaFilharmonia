@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="WidokKsiegowy.WidokKsiegowy">
+  <grid id="27dc6" binding="panel1" default-binding="true" layout-manager="FlowLayout" hgap="5" vgap="5" flow-align="1">
+    <constraints>
+      <xy x="20" y="20" width="500" height="400"/>
+    </constraints>
+    <properties>
+      <background color="-13816015"/>
+      <maximumSize width="500" height="300"/>
+      <minimumSize width="500" height="300"/>
+      <preferredSize width="500" height="300"/>
+    </properties>
+    <border type="none"/>
+    <children>
+      <component id="6e037" class="javax.swing.JButton" binding="wynagrodzeniaButton" default-binding="true">
+        <constraints/>
+        <properties>
+          <background color="-13816015"/>
+          <font name="Lucida Sans Typewriter" size="14" style="2"/>
+          <foreground color="-13509112"/>
+          <text value="Wynagrodzenia"/>
+        </properties>
+      </component>
+      <component id="51369" class="javax.swing.JButton" binding="dodajWynagrodzenieButton" default-binding="true">
+        <constraints/>
+        <properties>
+          <background color="-13816015"/>
+          <font name="Lucida Sans Typewriter" size="14" style="2"/>
+          <foreground color="-13509112"/>
+          <text value="Dodaj wynagrodzenie"/>
+        </properties>
+      </component>
+      <grid id="6c23b" binding="kontentPanel" layout-manager="FlowLayout" hgap="5" vgap="5" flow-align="1">
+        <constraints/>
+        <properties>
+          <background color="-13816015"/>
+          <maximumSize width="500" height="231"/>
+          <minimumSize width="500" height="231"/>
+          <preferredSize width="500" height="231"/>
+        </properties>
+        <border type="none"/>
+        <children/>
+      </grid>
+    </children>
+  </grid>
+</form>
